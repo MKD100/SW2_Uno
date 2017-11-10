@@ -11,4 +11,10 @@ package uno_project;
  */
 public class Card {
     int [] hand;
+    String color; 
+    
+    public void setColor(int i){
+        if(i == 0)
+            this.color="Yellow";
+    }
 }
