@@ -6,19 +6,17 @@
 package uno_project;
 
 /**
- *this class is for the came play Mechanics
- * player order 
- * check if cars are valid 
- * etc
+ *
  * @author matth
  */
+public class Uno_Project {
 
-public class Game {
-    int num = 0;
- 
-    
-    
-    
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("Stuff");
+    }
     
 }
