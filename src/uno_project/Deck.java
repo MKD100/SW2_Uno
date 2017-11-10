@@ -6,19 +6,16 @@
 package uno_project;
 
 /**
- *this class is for the came play Mechanics
- * player order 
- * check if cars are valid 
- * etc
+ *
  * @author matth
  */
-
-public class Game {
-    int num = 0;
+public class Deck {
+  int num =0;
  
-    
-    
-    
-    
-    
+  
+  
+  
+  
+  
+  
 }
