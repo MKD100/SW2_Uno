@@ -24,6 +24,7 @@ public class Card implements Comparable<Card>{
     public Card(int cColor, int cValue){
         color = cColor;
         value = cValue;
+        String test;
     }
     public String toString(){
         String cardInfo = cardColor[color]+cardValue[value];
