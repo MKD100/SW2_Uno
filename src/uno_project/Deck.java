@@ -21,18 +21,35 @@ public class Deck {
         this.makeDeck();
     }
     public void makeDeck(){
-        String b;
+        //Add the 4 Zero Cards
         for (int i=0; i<4; i++){
             Card c1 = new Card();
-            
+            c1.setColor(i);
+            c1.setValue(0);
+            a.add(c1);
         }
+        //Add the 4 Wild Change color cards
         for (int i=0; i<4; i++){
-            for (int j=0; j<13; j++){
+            Card c1 = new Card();
+            c1.setColor(4);
+            c1.setValue(13);
+            a.add(c1);
+        }
+        //Add the 4 Wild Change color/Draw 4 cards
+        for (int i=0; i<4; i++){
+            Card c1 = new Card();
+            c1.setColor(4);
+            c1.setValue(14);
+            a.add(c1);
+        }
+        /*Populate the rest of the deck with
+          2 of every card 1-9, skip, reverse, and addtwo*/
+        for (int i=0; i<4; i++){
+            for (int j=1; j<13; j++){
                 Card c1 = new Card();
-                c1.setSuit(i);
+                c1.setColor(i);
                 c1.setValue(j);
                 a.add(c1);
-                
             }
         }
     }
@@ -58,4 +75,3 @@ public class Deck {
         Collections.sort(this.a);
     }
 }
-

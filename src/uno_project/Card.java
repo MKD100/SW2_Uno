@@ -11,9 +11,10 @@ package uno_project;
  */
 public class Card implements Comparable<Card>{
     private int color, value;
-    private String[] cardColor = {"Red", "Yellow", "Blue", "Green"};
+    private String[] cardColor = {"Red", "Yellow", "Blue", "Green", "Wild"};
     private String[] cardValue = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
-                                   "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen"};
+                                   "Eight", "Nine", "Skip", "Reverse", "DrawTwo", 
+                                   "SetColor", "SetColorDrawFour"};
                                     /*
                                     10=Skip , 11=Reverse , 12=DrawTwo , 
                                     13=WildChangeColor , 14=WildChangeColorDrawFour
@@ -25,17 +26,17 @@ public class Card implements Comparable<Card>{
         value = cValue;
     }
     public String toString(){
-        String cardInfo = cardValue[value]+cardColor[color];
+        String cardInfo = cardColor[color]+cardValue[value];
         return cardInfo;
     }
-    public int getSuit(){
+    public int getColor(){
         return this.color;
     }
     public int getValue(){
         return this.value;
     }
-    public void setSuit(int suitx){
-            this.color = suitx;
+    public void setColor(int colorx){
+            this.color = colorx;
     }
     public void setValue(int valuex){
         this.value = valuex;
@@ -46,15 +47,15 @@ public class Card implements Comparable<Card>{
     @Override
     public int compareTo(Card compareCard) {
         
-        int compareSuit = ((Card)compareCard).getSuit();
+        int compareColor = ((Card)compareCard).getColor();
         int compareValue=((Card)compareCard).getValue();
-        if(this.color == compareSuit)
+        if(this.color == compareColor)
         {
             /* For Ascending order of values */
             return this.value-compareValue;
          }
         /* For Ascending order of suits */
-        else return this.color - compareSuit; 
+        else return this.color - compareColor; 
      }
 
 }
