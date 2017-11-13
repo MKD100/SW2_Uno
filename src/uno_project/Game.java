@@ -19,430 +19,25 @@ public class Game {
     Deck d;
     Deck discard;
     Card topCard;
+    int cardColor;//"Red", "Yellow", "Blue", "Green", "Wild"
     int numberOfPlayers;
-    Player p1;
-    Player p2;
-    Player p3;
-    Player p4;
-    Player p5;
-    Player p6;
-    Player p7;
-    Player p8;
-    Player p9;
-    Player p10;
+    int currentPlayer = 0;
+    ArrayList<Player> playerGroup = new ArrayList<Player>();
+    Player p; 
+
     Boolean reversed = false;
     Boolean skipNext = false;
     public Game(){
         Deck d = new Deck();
         d.shuffle();
+        topCard=d.getCard();
     }
     public void genPlayer(int numPlayers){
         this.numberOfPlayers = numPlayers;
         if(numPlayers>1 || numPlayers<11){
-            switch (numPlayers){
-                case 2: 
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand, 1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand, 2);
-                        }
-                    }
-                    break;
-                case 3: 
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    break;
-                case 4:
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    break;
-                case 5: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    
-                    break;
-                case 6: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p6 = new Player(hand,6);
-                        }
-                    }
-
-                    break;
-                case 7: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p6 = new Player(hand,6);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p7 = new Player(hand,7);
-                        }
-                    }
-
-                    break;
-                case 8: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p6 = new Player(hand,6);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p7 = new Player(hand,7);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p8 = new Player(hand,8);
-                        }
-                    }
-
-                    break;
-                case 9: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p6 = new Player(hand,6);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p7 = new Player(hand,7);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p8 = new Player(hand,8);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p9 = new Player(hand,9);
-                        }
-                    }
-
-                                       
-                    break;
-                case 10: 
-                     for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p1 = new Player(hand,1);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p2 = new Player(hand,2);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p3 = new Player(hand,3);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p4 = new Player(hand,4);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p5 = new Player(hand,5);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p6 = new Player(hand,6);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p7 = new Player(hand,7);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p8 = new Player(hand,8);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p9 = new Player(hand,9);
-                        }
-                    }
-                    for (int i = 0; i <= numPlayers; i++) {
-                        ArrayList<Card> hand = new ArrayList<Card>();
-                        for (int j = 0; j < 8; i++) {
-                            hand.add(d.getCard());
-                            p10 = new Player(hand,10);
-                        }
-                    }
-                                      
-                    break;
+            for(int i=0; i<=numPlayers; i++){
+                p = new Player(d.makeHand(), i);
+                playerGroup.add(p);
             }
         }else{
             System.out.println("too many or too few players");
@@ -450,7 +45,7 @@ public class Game {
         
     }
     
-    public int nextPlayer(int currentPlayer){
+    public void nextPlayer(int currentPlayer){
         int nextPlayerPID;
         
         if (!reversed && !skipNext) {
@@ -472,10 +67,40 @@ public class Game {
         }else{
             nextPlayerPID = 0;
         }
-
-        return nextPlayerPID;
+        
+        this.currentPlayer=nextPlayerPID;
     }
     
+    //this is what determines if a discard is valid and what actions should be taken
+    public void discard(Card c){
+        if(topCard.getColor()==c.getColor() || topCard.getValue()==c.getValue()){
+            topCard=c;
+            if(topCard.getValue()==12 || topCard.getValue()==14){//current top card is a draw 2 or draw4 Wild card
+                //card the current player is putting down is NOT a draw 2 or draw4 Wild card
+                //Player draws cards and cannot discard
+                if (c.getValue() == 12 || c.getValue() == 14) {
+                    nextPlayer(currentPlayer);
+                    if (c.getValue() == 12) {//draw 2
+                        for (int i = 0; i < 3; i++) {
+                            playerGroup.get(currentPlayer).drawCard(d.getCard());
+                        }
+                    }
+                    if (c.getValue() == 12) {//draw 4
+                        for (int i = 0; i < 5; i++) {
+                            playerGroup.get(currentPlayer).drawCard(d.getCard());
+                        }
+                    }
+                }else{
+                    if(c.getValue()==12){//draw 2
+                        
+                    }
+                    if(c.getValue()==14){//draw 4 color change
+                        
+                    }
+                }
+            }
+        }
+    }
     
     
     
