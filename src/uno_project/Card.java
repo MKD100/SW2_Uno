@@ -9,6 +9,7 @@ package uno_project;
  *
  * @author matth
  */
+
 public class Card implements Comparable<Card>{
     private int color, value;
     private String[] cardColor = {"Red", "Yellow", "Blue", "Green", "Wild"};
