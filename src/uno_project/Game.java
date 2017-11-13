@@ -24,19 +24,21 @@ public class Game {
     int currentPlayer = 0;
     ArrayList<Player> playerGroup = new ArrayList<Player>();
     Player p; 
-
+    Boolean canDiscard = true;
     Boolean reversed = false;
     Boolean skipNext = false;
-    public Game(){
+    public Game(int pNum){
         Deck d = new Deck();
         d.shuffle();
+        //this creates the number of players and gives each of them a hand
+        genPlayer(pNum);
         topCard=d.getCard();
     }
     public void genPlayer(int numPlayers){
         this.numberOfPlayers = numPlayers;
         if(numPlayers>1 || numPlayers<11){
             for(int i=0; i<=numPlayers; i++){
-                p = new Player(d.makeHand(), i);
+                p = new Player(d.makeHand(), i); //player numbers start at 0, player 0 is always human
                 playerGroup.add(p);
             }
         }else{
@@ -70,8 +72,41 @@ public class Game {
         
         this.currentPlayer=nextPlayerPID;
     }
-    
+    //this will control how a player plays their card, if the player is non-human
+    //this controls the AI
+    public void playHand(Card c){
+        //check if top card allows player to play
+        CheckIntendedDiscard(c);;
+        
+        if(currentPlayer==0){//human
+            if(this.canDiscard==true){
+               //discard the selected card
+            }else{
+                
+            }
+                
+        }else{//not human
+            
+        }
+    }
+    public void CheckIntendedDiscard(Card c){
+        if(topCard.getValue()==12||topCard.getValue()==14){
+            if(c.getValue()!=12||c.getValue()!=14){
+                this.canDiscard=false;
+            }
+        }
+    }
     //this is what determines if a discard is valid and what actions should be taken
+    public void draw2(){
+        for (int i = 0; i < 3; i++) {
+                            playerGroup.get(currentPlayer).drawCard(d.getCard());
+                        }
+    }
+    public void draw4(){
+        for (int i = 0; i < 5; i++) {
+                            playerGroup.get(currentPlayer).drawCard(d.getCard());
+                        }
+    }
     public void discard(Card c){
         if(topCard.getColor()==c.getColor() || topCard.getValue()==c.getValue()){
             topCard=c;
@@ -81,14 +116,10 @@ public class Game {
                 if (c.getValue() == 12 || c.getValue() == 14) {
                     nextPlayer(currentPlayer);
                     if (c.getValue() == 12) {//draw 2
-                        for (int i = 0; i < 3; i++) {
-                            playerGroup.get(currentPlayer).drawCard(d.getCard());
-                        }
+                        
                     }
-                    if (c.getValue() == 12) {//draw 4
-                        for (int i = 0; i < 5; i++) {
-                            playerGroup.get(currentPlayer).drawCard(d.getCard());
-                        }
+                    if (c.getValue() == 14) {//draw 4
+                        
                     }
                 }else{
                     if(c.getValue()==12){//draw 2
