@@ -9,13 +9,11 @@ package uno_project;
  *
  * @author matth
  */
-
 public class Card implements Comparable<Card>{
     private int color, value;
-    private String[] cardColor = {"Red", "Yellow", "Blue", "Green", "Wild"};
+    private String[] cardColor = {"Red", "Yellow", "Blue", "Green"};
     private String[] cardValue = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
-                                   "Eight", "Nine", "Skip", "Reverse", "DrawTwo", 
-                                   "SetColor", "SetColorDrawFour"};
+                                   "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen"};
                                     /*
                                     10=Skip , 11=Reverse , 12=DrawTwo , 
                                     13=WildChangeColor , 14=WildChangeColorDrawFour
@@ -25,20 +23,19 @@ public class Card implements Comparable<Card>{
     public Card(int cColor, int cValue){
         color = cColor;
         value = cValue;
-        String test;
     }
     public String toString(){
-        String cardInfo = cardColor[color]+cardValue[value];
+        String cardInfo = cardValue[value]+cardColor[color];
         return cardInfo;
     }
-    public int getColor(){
+    public int getSuit(){
         return this.color;
     }
     public int getValue(){
         return this.value;
     }
-    public void setColor(int colorx){
-            this.color = colorx;
+    public void setSuit(int suitx){
+            this.color = suitx;
     }
     public void setValue(int valuex){
         this.value = valuex;
@@ -49,15 +46,15 @@ public class Card implements Comparable<Card>{
     @Override
     public int compareTo(Card compareCard) {
         
-        int compareColor = ((Card)compareCard).getColor();
+        int compareSuit = ((Card)compareCard).getSuit();
         int compareValue=((Card)compareCard).getValue();
-        if(this.color == compareColor)
+        if(this.color == compareSuit)
         {
             /* For Ascending order of values */
             return this.value-compareValue;
          }
         /* For Ascending order of suits */
-        else return this.color - compareColor; 
+        else return this.color - compareSuit; 
      }
 
 }
